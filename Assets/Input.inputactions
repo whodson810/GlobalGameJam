@@ -103,17 +103,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "306ee525-2f2e-4275-afaf-049da0a5b1ff",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WADS",
                     "id": "50f67f14-78e4-4016-aea7-3ba2b886222a",
                     "path": "2DVector",
