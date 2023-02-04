@@ -30,6 +30,8 @@ public class CharacterPhysics : MonoBehaviour
     private void OnJump(InputValue v)
     {
         jumping = v.isPressed;
+        if (velocity.y != 0)
+            jumping = false;
         if (!jumping)
             return;
 
@@ -48,7 +50,7 @@ public class CharacterPhysics : MonoBehaviour
         CheckForFloor();
         UpdateVelocity();
         UpdatePosition();
-        if (velocity.y != 0.0f)
+        if (jumping)
         {
             jumping = false;
         }
@@ -56,13 +58,14 @@ public class CharacterPhysics : MonoBehaviour
 
     private void UpdateVelocity()
     {
-        if ((jumping && !falling) || falling)
+        if (falling)
         {
             velocity += gravityValue * Time.deltaTime * Vector2.down;
         }
         else
         {
-            velocity.y = 0;
+            if (!jumping)
+                velocity.y = 0;
         }
     }
 
