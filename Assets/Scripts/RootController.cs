@@ -40,6 +40,8 @@ public class RootController : MonoBehaviour
 
     private void UpdateSwing()
     {
+        if (point1Locked && point2Locked)
+            return;
         if (transform.childCount == 0)
         {
             transform.rotation = initialRotation;
@@ -78,11 +80,13 @@ public class RootController : MonoBehaviour
             RotateToRootPosition();
             GetComponent<BoxCollider2D>().isTrigger = true;
         }
+        /*
         else
         {
             tag = "Floor";
             GetComponent<BoxCollider2D>().isTrigger = false;
         }
+        //*/
     }
 
     private void RotateToRootPosition()
@@ -136,6 +140,11 @@ public class RootController : MonoBehaviour
             index += 1;
         }
         pointIndex = index - 2;
+        if (pointIndex == points.Count - 1 && point2Locked)
+            pointIndex -= 1;
+        if (pointIndex == 0 && point1Locked)
+            pointIndex += 1;
+        closest = GetPoint(pointIndex);
         return closest;
     }
 
@@ -179,7 +188,7 @@ public class RootController : MonoBehaviour
             dir = -1;
         if (direction.y < 0)
             dir = 1;
-        if (point2Locked)
+        if (point2Locked && !point1Locked)
         {
             dir *= -1;
             endPoint = 0;
@@ -188,6 +197,10 @@ public class RootController : MonoBehaviour
         if (pointIndex == points.Count)
             pointIndex -= 1;
         if (pointIndex == -1)
+            pointIndex += 1;
+        if (pointIndex == points.Count - 1 && point2Locked)
+            pointIndex -= 1;
+        if (pointIndex == 0 && point1Locked)
             pointIndex += 1;
         player.transform.localPosition = GetPoint(pointIndex);
 
