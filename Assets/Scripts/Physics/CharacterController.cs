@@ -184,7 +184,13 @@ public class CharacterController : MonoBehaviour
             }
         }
 
+        bool tempFall = falling;
         falling = !hit;
+
+        if (falling == false && tempFall != falling && animator)
+        {
+            animator.OnLand();
+        }
         /*
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
         bool hit = false;
