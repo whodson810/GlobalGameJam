@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Rope
+  - Rock
   layers:
   - Default
   - TransparentFX

@@ -73,6 +73,14 @@ public class CharacterController : MonoBehaviour
         velocity.x = x * moveSpeed;
     }
 
+    private void OnBreakRock()
+    {
+        if (rock != null)
+        {
+            Destroy(rock);
+            rock = null;
+        }
+    }
     private void RopeMove(Vector2 direction)
     {
         rc.MoveOnRope(gameObject, direction);
