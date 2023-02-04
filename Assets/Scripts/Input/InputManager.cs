@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
+// lol you can just ignore all of this shit, it's not doing anything
+
 public class InputManager : MonoBehaviour
 {
     int playerIndex = 0;

@@ -99,7 +99,7 @@ public class CharacterPhysics : MonoBehaviour
 
     private void OnRopeUpdate()
     {
-
+        // i don't think we need to update anything for the character physics while they're on the rope
     }
 
     private void UpdateVelocity()

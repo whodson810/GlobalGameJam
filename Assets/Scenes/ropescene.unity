@@ -616,8 +616,9 @@ MonoBehaviour:
   speed: 5
   swinging: 0
   timer: 0
-  angle: 70
+  angle: 45
   pointIndex: 0
+  swingDirection: 0
   point1Locked: 1
   point2Locked: 0
 --- !u!1 &1227467258
