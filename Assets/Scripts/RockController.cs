@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RockController : MonoBehaviour
 {
-    public float checkArea = 1.5f;
     GameObject highlight;
     RootController root;
 
+    public bool playerNearby { set; get; }
+
     private void Start()
     {
+        playerNearby = false;
         highlight = transform.GetChild(0).gameObject;
         FindRoot();
         root.RegisterRock(gameObject);
@@ -31,19 +33,6 @@ public class RockController : MonoBehaviour
 
     private void Update()
     {
-        highlight.SetActive(CheckForPlayer());
-    }
-
-    private bool CheckForPlayer()
-    {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, checkArea * transform.localScale, 0);
-        bool hit = false;
-        for (int i = 0; i < hits.Length && !hit; i++)
-        {
-            if (hits[i].CompareTag("Player"))
-                hit = true;
-        }
-
-        return hit;
+        highlight.SetActive(playerNearby);
     }
 }

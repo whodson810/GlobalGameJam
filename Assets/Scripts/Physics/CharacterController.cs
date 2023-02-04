@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterPhysics : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public bool jumping = false;
     public bool falling = false;
@@ -13,8 +13,11 @@ public class CharacterPhysics : MonoBehaviour
     public float jumpSpeed = 10f;
     public float moveSpeed = 5f;
     public float terminalVelocity = 10f;
+    public float checkArea = 1.5f;
 
     public Vector2 velocity;
+
+    public GameObject rock;
     private RootController rc;
     //private Subscription<JumpEvent> subJump;
     // private Subscription<Vec2InputEvent> subMove;
@@ -78,6 +81,7 @@ public class CharacterPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForRock();
         if (onRope)
         {
             OnRopeUpdate();
@@ -253,5 +257,39 @@ public class CharacterPhysics : MonoBehaviour
         velocity = Vector2.zero;
         rc = rope.GetComponent<RootController>();
         transform.localPosition = rc.GetEndPoint(gameObject);
+    }
+
+    private void CheckForRock()
+    {
+        Vector3 check = transform.localScale;
+        if (transform.parent != null)
+        {
+            check.x *= transform.parent.localScale.x;
+            check.y *= transform.parent.localScale.y;
+        }
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, checkArea * check, 0);
+        bool hit = false;
+        Collider2D rockCollider = null;
+        for (int i = 0; i < hits.Length && !hit; i++)
+        {
+            if (hits[i].CompareTag("Rock"))
+            {
+                hit = true;
+                rockCollider = hits[i];
+            }
+        }
+
+        if (hit)
+        {
+            if (rock != null)
+                rock.GetComponent<RockController>().playerNearby = false;
+
+            rock = rockCollider.gameObject;
+            rock.GetComponent<RockController>().playerNearby = true;
+        }
+        else if (rock != null)
+        {
+            rock.GetComponent<RockController>().playerNearby = false;
+        }
     }
 }
