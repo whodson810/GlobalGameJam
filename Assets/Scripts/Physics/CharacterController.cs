@@ -20,6 +20,8 @@ public class CharacterController : MonoBehaviour
 
     public GameObject rock;
     private RootController rc;
+
+    private AnimatorController animator;
     //private Subscription<JumpEvent> subJump;
     // private Subscription<Vec2InputEvent> subMove;
 
@@ -27,6 +29,7 @@ public class CharacterController : MonoBehaviour
     {
         //subJump = EventBus.Subscribe<JumpEvent>(OnJumpEvent);
         //subMove = EventBus.Subscribe<Vec2InputEvent>(OnMoveEvent);
+        animator = GetComponent<AnimatorController>();
     }
 
     private void OnDestroy()
@@ -50,6 +53,11 @@ public class CharacterController : MonoBehaviour
             return;
 
         velocity.y = jumpSpeed;
+
+        if (animator)
+        {
+            animator.OnJump();
+        }
     }
 
     private void RopeJump()
@@ -60,6 +68,11 @@ public class CharacterController : MonoBehaviour
         rc = null;
         velocity.y = jumpSpeed;
         transform.rotation = Quaternion.identity;
+
+        if (animator)
+        {
+            animator.OnRoapJump();
+        }
     }
 
     // this function is called by the input component on the player object
@@ -72,15 +85,25 @@ public class CharacterController : MonoBehaviour
         }
         float x = v.Get<Vector2>().x;
         velocity.x = x * moveSpeed;
+
+        if (animator)
+        {
+            animator.OnMove(x);
+        }
     }
 
     private void OnBreakRock()
     {
+        if (animator)
+        {
+            animator.DestroyRock();
+        }
         if (rock != null)
         {
             Destroy(rock);
             rock = null;
         }
+
     }
     private void RopeMove(Vector2 direction)
     {
