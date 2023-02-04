@@ -13,21 +13,28 @@ public class RopeController : MonoBehaviour
     public bool point1Locked = false; // points[0]
     public bool point2Locked = false; // points[points.Count - 1]
 
+    private Vector2 initialPosition;
+    private Quaternion initialRotation;
+
     private void Start()
     {
         MakePoints();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
     }
 
     private void Update()
     {
-        if (transform.childCount == 0)
-            return;
         UpdateSwing();
     }
 
     private void UpdateSwing()
     {
-
+        if (transform.childCount == 0)
+        {
+            transform.rotation = initialRotation;
+            transform.position = initialPosition;
+        }
         if (point1Locked && point2Locked)
         {
             return;
@@ -36,18 +43,17 @@ public class RopeController : MonoBehaviour
         if (swinging)
         {
             timer += Time.deltaTime;
+            Vector2 rotationPoint = transform.position;
+            if (point1Locked)
+                rotationPoint -= (Vector2)(transform.rotation * points[points.Count - 1]);
+            if (point2Locked)
+                rotationPoint -= (Vector2)(transform.rotation * points[0]);
+            transform.RotateAround(rotationPoint, Vector3.forward, angle * Mathf.PI / 360 * Mathf.Cos(timer));
         }
         else
         {
             timer = 0;
         }
-
-        Vector2 rotationPoint = transform.position;
-        if (point1Locked)
-            rotationPoint -= (Vector2)(transform.rotation * points[points.Count - 1]);
-        if (point2Locked)
-            rotationPoint -= (Vector2)(transform.rotation * points[0]);
-        transform.RotateAround(rotationPoint, Vector3.forward, angle * Mathf.Sin(timer));
     }
 
     private void MakePoints()
@@ -98,10 +104,16 @@ public class RopeController : MonoBehaviour
         if (pointIndex == -1)
             pointIndex += 1;
         player.transform.localPosition = GetPoint(pointIndex);
-        Vector2 compare = GetEndPoint();
-        if (player.transform.localPosition.y > compare.y)
+        Vector2 compare = transform.rotation * (GetPoint(points.Count - 2) - GetEndPoint());
+        Vector2 playerComp = GetPoint(points.Count - 2) - (Vector2)player.transform.position;
+        float dotValue = Vector2.Dot(compare, playerComp);
+        Debug.Log(dotValue);
+        if (dotValue > 1)
         {
             swinging = false;
+            timer = 0;
+            transform.rotation = initialRotation;
+            transform.position = initialPosition;
         }
     }
 

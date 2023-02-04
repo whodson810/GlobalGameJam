@@ -53,6 +53,7 @@ public class CharacterPhysics : MonoBehaviour
         transform.parent = null;
         rc = null;
         velocity.y = jumpSpeed;
+        transform.rotation = Quaternion.identity;
     }
 
     private void OnMove(InputValue v)
