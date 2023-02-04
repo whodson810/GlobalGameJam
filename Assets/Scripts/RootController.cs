@@ -75,10 +75,12 @@ public class RootController : MonoBehaviour
         else if (!point1Locked || !point2Locked)
         {
             tag = "Rope";
+            GetComponent<BoxCollider2D>().isTrigger = true;
         }
         else
         {
             tag = "Floor";
+            GetComponent<BoxCollider2D>().isTrigger = false;
         }
     }
     private void MakePoints()
