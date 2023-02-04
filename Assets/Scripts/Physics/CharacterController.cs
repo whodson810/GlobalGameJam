@@ -119,8 +119,11 @@ public class CharacterController : MonoBehaviour
 
     private void OnRopeUpdate()
     {
-        // i don't think we need to update anything for the character physics while they're on the rope
-        // but hey! maybe we will later. idk
+        if (rc == null)
+        {
+            onRope = false;
+            offRope = false;
+        }
     }
 
     private void UpdateVelocity()
@@ -147,6 +150,7 @@ public class CharacterController : MonoBehaviour
 
     private void CheckForFloor()
     {
+        //*
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
         bool hit = false;
         Transform floor = null;
@@ -160,6 +164,7 @@ public class CharacterController : MonoBehaviour
         }
 
         falling = !hit;
+        //*/
         /*
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
         bool hit = false;
@@ -188,7 +193,7 @@ public class CharacterController : MonoBehaviour
     private void CheckCollision(Transform floor)
     {
         
-        /*
+        //*
         // don't worry about this.
 
         Vector2 xAxis = (floor.rotation * (floor.localScale / 2)).normalized;

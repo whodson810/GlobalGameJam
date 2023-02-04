@@ -130,10 +130,8 @@ public class RootController : MonoBehaviour
         index += 1;
         Vector2 dist1 = (Vector2)player.transform.localPosition - pos1;
         Vector2 dist2 = (Vector2)player.transform.localPosition - pos2;
-        Vector2 closest = pos1;
         while (dist2.magnitude < dist1.magnitude && index <= points.Count)
         {
-            closest = pos2;
             dist1 = dist2;
             pos2 = GetPoint(index);
             dist2 = (Vector2)player.transform.localPosition - pos2;
@@ -144,8 +142,7 @@ public class RootController : MonoBehaviour
             pointIndex -= 1;
         if (pointIndex == 0 && point1Locked)
             pointIndex += 1;
-        closest = GetPoint(pointIndex);
-        return closest;
+        return GetPoint(pointIndex);
     }
 
     // Only use this when getting a point to set the player's position
