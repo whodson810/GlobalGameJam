@@ -12,11 +12,12 @@ public class CharacterPhysics : MonoBehaviour
     public float gravityValue = 9.81f;
     public float jumpSpeed = 10f;
     public float moveSpeed = 5f;
+    public float terminalVelocity = 10f;
 
     public Vector2 velocity;
-    private RopeController rc;
+    private RootController rc;
     //private Subscription<JumpEvent> subJump;
-   // private Subscription<Vec2InputEvent> subMove;
+    // private Subscription<Vec2InputEvent> subMove;
 
     private void Start()
     {
@@ -27,9 +28,10 @@ public class CharacterPhysics : MonoBehaviour
     private void OnDestroy()
     {
         //EventBus.Unsubscribe(subJump);
-       // EventBus.Unsubscribe(subMove);
+        // EventBus.Unsubscribe(subMove);
     }
 
+    // this function is called by the input component on the player object
     private void OnJump(InputValue v)
     {
         if (onRope)
@@ -56,6 +58,7 @@ public class CharacterPhysics : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
+    // this function is called by the input component on the player object
     private void OnMove(InputValue v)
     {
         if (onRope)
@@ -88,6 +91,11 @@ public class CharacterPhysics : MonoBehaviour
     private void OffRopeUpdate()
     {
         CheckForRope();
+        if (onRope)
+        {
+            jumping = false;
+            return;
+        }
         CheckForFloor();
         UpdateVelocity();
         UpdatePosition();
@@ -100,13 +108,16 @@ public class CharacterPhysics : MonoBehaviour
     private void OnRopeUpdate()
     {
         // i don't think we need to update anything for the character physics while they're on the rope
+        // but hey! maybe we will later. idk
     }
 
     private void UpdateVelocity()
     {
         if (falling)
         {
-            velocity += gravityValue * Time.deltaTime * Vector2.down;
+            float fallSpeed = velocity.y;
+            fallSpeed = Mathf.Clamp(fallSpeed - gravityValue * Time.deltaTime, -terminalVelocity, Mathf.Infinity);
+            velocity.y = fallSpeed;
         }
         else
         {
@@ -124,17 +135,91 @@ public class CharacterPhysics : MonoBehaviour
 
     private void CheckForFloor()
     {
-        float dist = transform.localScale.y / 2;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, dist);
-        Debug.DrawRay(transform.position, dist * Vector2.down, Color.red);
-        if (hit.collider != null)
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+        bool hit = false;
+        Transform floor = null;
+        for (int i = 0; i < hits.Length && !hit; i++)
         {
-            falling = !hit.collider.CompareTag("Floor");
+            if (hits[i].CompareTag("Floor"))
+            {
+                floor = hits[i].transform;
+                hit = true;
+            }
+        }
+
+        falling = !hit;
+        /*
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+        bool hit = false;
+        Transform floor = null;
+        for (int i = 0; i < hits.Length && !hit; i++)
+        {
+            if (hits[i].CompareTag("Floor"))
+            {
+                floor = hits[i].transform;
+                hit = true;
+            }
+        }
+
+        if (floor != null)
+        {
+            CheckCollision(floor);
+            falling = false;
         }
         else
         {
             falling = true;
         }
+        //*/
+    }
+
+    private void CheckCollision(Transform floor)
+    {
+        
+        /*
+        // don't worry about this.
+
+        Vector2 xAxis = (floor.rotation * (floor.localScale / 2)).normalized;
+        Vector2 yAxis = floor.localScale / 2;
+        yAxis.x *= -1;
+        yAxis = (floor.rotation * yAxis).normalized;
+        Vector2 floorToPlayer = transform.position - floor.position;
+
+        float referenceAngle = Vector2.Angle(Vector2.right, xAxis);
+        Debug.Log("ref: " + referenceAngle);
+        Vector2 playerCheck = floorToPlayer;
+        float xVal = playerCheck.x;
+        float yVal = playerCheck.y;
+        playerCheck.x = Mathf.Cos(referenceAngle) * xVal - Mathf.Cos(referenceAngle) * yVal;
+        playerCheck.y = Mathf.Sin(referenceAngle) * xVal + Mathf.Sin(referenceAngle) * yVal;
+        playerCheck.Normalize();
+        float angle = Vector2.Angle(xAxis, playerCheck);
+        Vector3 cross = Vector3.Cross(xAxis, playerCheck);
+        if (cross.z <= 0)
+        {
+            angle = 360 - angle;
+        }
+        Debug.Log("angle: " + angle);
+
+        if (Application.isEditor)
+        {
+            Debug.DrawRay(floor.position, floorToPlayer, Color.black);
+            Debug.DrawRay(floor.position, xAxis, Color.black);
+            Debug.DrawRay(Vector2.zero, xAxis, Color.blue);
+            Debug.DrawRay(Vector2.zero, yAxis, Color.blue);
+            Debug.DrawRay(Vector2.zero, playerCheck, Color.green);
+            Vector2 bottomLeftCorner = floor.position - floor.rotation * floor.localScale / 2;
+            Vector2 bottomRightCorner = bottomLeftCorner;
+            bottomRightCorner.x += (floor.rotation * (floor.localScale)).x;
+            Vector2 topRightCorner = floor.position + floor.rotation * floor.localScale / 2;
+            Vector2 topLeftCorner = topRightCorner;
+            topLeftCorner.x -= (floor.rotation * (floor.localScale)).x;
+            Debug.DrawRay(bottomLeftCorner, bottomRightCorner - bottomLeftCorner, Color.red);
+            Debug.DrawRay(bottomRightCorner, topRightCorner - bottomRightCorner, Color.red);
+            Debug.DrawRay(topRightCorner, topLeftCorner - topRightCorner, Color.red);
+            Debug.DrawRay(topLeftCorner, bottomLeftCorner - topLeftCorner, Color.red);
+        }
+        //*/
     }
 
     private void CheckForRope()
@@ -157,7 +242,6 @@ public class CharacterPhysics : MonoBehaviour
         }
         else if (!offRope && hit)
         {
-            Debug.Log(rope);
             onRope = true;
             AttachToRope(rope);
         }
@@ -167,7 +251,7 @@ public class CharacterPhysics : MonoBehaviour
     {
         transform.parent = rope;
         velocity = Vector2.zero;
-        rc = rope.GetComponent<RopeController>();
-        transform.localPosition = rc.GetEndPoint();
+        rc = rope.GetComponent<RootController>();
+        transform.localPosition = rc.GetEndPoint(gameObject);
     }
 }

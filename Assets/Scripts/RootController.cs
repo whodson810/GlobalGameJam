@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RopeController : MonoBehaviour
+public class RootController : MonoBehaviour
 {
     public List<Vector2> points = new();
     public float speed = 5.0f;
@@ -13,6 +13,8 @@ public class RopeController : MonoBehaviour
     public int swingDirection = 0; // -1 = counterclockwise, 1 = clockwise
     public bool point1Locked = false; // points[0]
     public bool point2Locked = false; // points[points.Count - 1]
+    public GameObject rock1;
+    public GameObject rock2;
 
     private Vector2 initialPosition;
     private Quaternion initialRotation;
@@ -26,6 +28,7 @@ public class RopeController : MonoBehaviour
 
     private void Update()
     {
+        UpdatePoints();
         UpdateSwing();
     }
 
@@ -35,6 +38,8 @@ public class RopeController : MonoBehaviour
         {
             transform.rotation = initialRotation;
             transform.position = initialPosition;
+            swinging = false;
+            timer = 0;
         }
         if (point1Locked && point2Locked)
         {
@@ -57,8 +62,29 @@ public class RopeController : MonoBehaviour
         }
     }
 
+
+    private void UpdatePoints()
+    {
+        point1Locked = rock1 != null;
+        point2Locked = rock2 != null;
+
+        if (!point1Locked && !point2Locked)
+        {
+            Destroy(gameObject);
+        }
+        else if (!point1Locked || !point2Locked)
+        {
+            tag = "Rope";
+        }
+        else
+        {
+            tag = "Floor";
+        }
+    }
     private void MakePoints()
     {
+        if (points.Count != 0)
+            return;
         int numPoints = (int)transform.localScale.y + 1;
         Vector2 firstPoint = transform.localScale.y / 2 * Vector2.up;
 
@@ -71,9 +97,26 @@ public class RopeController : MonoBehaviour
     }
 
     // Only use this when getting a point to set the player's position
-    public Vector2 GetEndPoint()
+    public Vector2 GetEndPoint(GameObject player)
     {
-        return GetPoint(points.Count - 1);
+        int index = 0;
+        Vector2 pos1 = GetPoint(index);
+        index += 1;
+        Vector2 pos2 = GetPoint(index);
+        index += 1;
+        Vector2 dist1 = (Vector2)player.transform.localPosition - pos1;
+        Vector2 dist2 = (Vector2)player.transform.localPosition - pos2;
+        Vector2 closest = pos1;
+        while (dist2.magnitude < dist1.magnitude && index <= points.Count)
+        {
+            closest = pos2;
+            dist1 = dist2;
+            pos2 = GetPoint(index);
+            dist2 = (Vector2)player.transform.localPosition - pos2;
+            index += 1;
+        }
+        pointIndex = index - 2;
+        return closest;
     }
 
     // Only use this when getting a point to set the player's position
@@ -158,6 +201,46 @@ public class RopeController : MonoBehaviour
     public void OnJumpOffRope()
     {
         pointIndex = points.Count - 1;
+        timer = 0;
+        swinging = false;
+    }
+
+    public bool RegisterRock(GameObject rock)
+    {
+        if (points.Count == 0)
+            MakePoints();
+        Vector2 rockPos = transform.rotation * (rock.transform.position - transform.position);
+        if (rock1 == null)
+        {
+            Vector2 pos1 = GetUnscaledPoint(0);
+            Vector2 pos2 = GetUnscaledPoint(1);
+
+            Vector2 dist1 = pos2 - pos1;
+            Vector2 dist2 = rockPos - pos1;
+            if (dist1.magnitude > dist2.magnitude)
+            {
+                rock1 = rock;
+                rock.transform.position = transform.position + transform.rotation * GetUnscaledPoint(0);
+                return true;
+            }
+        }
+
+        if (rock2 == null)
+        {
+            Vector2 pos1 = GetUnscaledPoint(points.Count - 1);
+            Vector2 pos2 = GetUnscaledPoint(points.Count - 2);
+
+            Vector2 dist1 = pos2 - pos1;
+            Vector2 dist2 = rockPos - pos1;
+            if (dist1.magnitude > dist2.magnitude)
+            {
+                rock2 = rock;
+                rock.transform.position = transform.position + transform.rotation * GetUnscaledPoint(points.Count - 1);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
