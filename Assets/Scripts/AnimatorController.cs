@@ -11,8 +11,23 @@ public class AnimatorController : MonoBehaviour
         animator = GetComponent<AnimatorController>();
     }
 
-    private void Update()
+    public void OnJump()
+    {
+
+    }
+
+    public void OnRoapJump()
+    {
+
+    }
+
+    public void OnMove(float horizontal)
     {
         
+    }
+
+    public void DestroyRock()
+    {
+
     }
 }
