@@ -30,4 +30,9 @@ public class AnimatorController : MonoBehaviour
     {
 
     }
+
+    public void OnLand()
+    {
+
+    }
 }
