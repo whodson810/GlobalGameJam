@@ -88,7 +88,7 @@ public class CharacterController : MonoBehaviour
 
         if (animator)
         {
-            animator.OnMove(x);
+            //animator.OnMove(x);
         }
     }
 
