@@ -156,24 +156,24 @@ public class RootController : MonoBehaviour
     private void ClimbOnRope(GameObject player, Vector2 direction)
     {
         int dir = 0;
+        int endPoint = points.Count - 1;
         if (direction.y > 0)
             dir = -1;
         if (direction.y < 0)
             dir = 1;
+        if (point2Locked)
+        {
+            dir *= -1;
+            endPoint = 0;
+        }
         pointIndex += dir;
         if (pointIndex == points.Count)
             pointIndex -= 1;
         if (pointIndex == -1)
             pointIndex += 1;
         player.transform.localPosition = GetPoint(pointIndex);
-        Vector2 compare = transform.rotation * (GetUnscaledPoint(points.Count - 2) - GetUnscaledPoint(points.Count - 1));
-        Vector2 playerComp = (transform.position + transform.rotation * GetUnscaledPoint(points.Count - 2)) - player.transform.position;
-        float dotValue = Vector2.Dot(compare, playerComp);
 
-        // i realized, only now after debugging all of this vector math, that there was an easier way to do this
-        // just check the fuckin pointIndex.
-        // whatever it stays now b/c i said so
-        if (dotValue <= 0)
+        if (pointIndex != endPoint)
         {
             swinging = false;
             timer = 0;
@@ -184,11 +184,12 @@ public class RootController : MonoBehaviour
 
     private void SwingOnRope(GameObject player, Vector2 direction)
     {
-        // i don't think changing direction mid-swing is a good idea.
+        int endPoint = points.Count - 1;
         if (swinging)
             return;
-        Vector2 compare = GetPoint(points.Count - 2);
-        if (player.transform.localPosition.y < compare.y)
+        if (point2Locked)
+            endPoint = 0;
+        if (pointIndex == endPoint)
         {
             swinging = true;
         }
