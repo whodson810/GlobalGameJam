@@ -248,9 +248,10 @@ public class CharacterController : MonoBehaviour
             }
         }
 
-        if (offRope && !hit)
+        if (!hit)
         {
             offRope = false;
+            onRope = false;
         }
         else if (!offRope && hit)
         {

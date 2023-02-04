@@ -29,6 +29,12 @@ public class RootController : MonoBehaviour
     private void Update()
     {
         UpdatePoints();
+        if (!point1Locked && !point2Locked)
+        {
+            if (transform.childCount != 0)
+                transform.GetChild(0).parent = null;
+            Destroy(gameObject);
+        }
         UpdateSwing();
     }
 
@@ -56,25 +62,20 @@ public class RootController : MonoBehaviour
                 rotationPoint -= (Vector2)(transform.rotation * points[0]);
             transform.RotateAround(rotationPoint, Vector3.forward, swingDirection * angle * Mathf.PI / 360 * Mathf.Cos(timer));
         }
-        else
-        {
-            timer = 0;
-        }
     }
 
 
     private void UpdatePoints()
     {
+        if (point1Locked == (rock1 != null) && point2Locked == (rock2 != null))
+            return;
         point1Locked = rock1 != null;
         point2Locked = rock2 != null;
 
-        if (!point1Locked && !point2Locked)
-        {
-            Destroy(gameObject);
-        }
-        else if (!point1Locked || !point2Locked)
+        if (!point1Locked || !point2Locked)
         {
             tag = "Rope";
+            RotateToRootPosition();
             GetComponent<BoxCollider2D>().isTrigger = true;
         }
         else
@@ -83,6 +84,23 @@ public class RootController : MonoBehaviour
             GetComponent<BoxCollider2D>().isTrigger = false;
         }
     }
+
+    private void RotateToRootPosition()
+    {
+        Vector2 newPosition = transform.position;
+        
+        if (point1Locked)
+            newPosition -= (Vector2)(transform.rotation * points[points.Count - 1]);
+        if (point2Locked)
+            newPosition -= (Vector2)(transform.rotation * points[0]);
+        newPosition.y -= transform.localScale.y / 2;
+        transform.position = newPosition;
+
+        initialPosition = newPosition;
+        initialRotation = Quaternion.identity;
+        transform.rotation = initialRotation;
+    }
+
     private void MakePoints()
     {
         if (points.Count != 0)
