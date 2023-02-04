@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float terminalVelocity = 10f;
     public float checkArea = 1.5f;
+    public float scaleVal = 0.3f;
 
     public Vector2 velocity;
 
@@ -147,7 +148,8 @@ public class CharacterController : MonoBehaviour
 
     private void CheckForFloor()
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+        Vector3 scale = new Vector3(scaleVal, scaleVal, scaleVal);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, scale, 0);
         bool hit = false;
         Transform floor = null;
         for (int i = 0; i < hits.Length && !hit; i++)
