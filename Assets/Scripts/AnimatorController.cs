@@ -4,161 +4,65 @@ using UnityEngine;
 
 public class AnimatorController : MonoBehaviour
 {
-    public CharacterController cc;
-    public List<Sprite> sprites;
-    public float jumpTime = 0.4f;
-    public float jumpRopeTime = 0.2f;
-    public float landTime = 0.2f;
-    public float frameTimer = 0;
-    public float maxTime = 0;
-    public int currentState = 0; // 0 = on ground/rope, 1 = jumping, 2 = falling, 3 = landing, 4 = flower
-    public int lastState = 0;
-    public float flowerTime = 0.25f;
-
-    public SpriteRenderer sr;
-    // Start is called before the first frame update
-    Vector2 velocity;
-    bool jumping = false;
-    bool falling = false;
-    bool onRope = false;
-    bool offRope = false;
+    Animator animator;
+    bool jumpUp;
+    bool jumpFall;
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        if (cc == null)
-            cc = GameObject.Find("Player").GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        jumpUp = false;
+        jumpFall = false;
     }
 
     public void OnJump()
     {
+        //animator.Play("jump");
+        animator.SetBool("PlayerJump", true);
+        //animator.SetBool("PlayerJump", true);
     }
 
     public void OnRopeJump()
     {
+        animator.Play("Standing");
+        //animator.Play("Standing");
     }
 
-
+    /*
+     *     public void OnMove(float horizontal)
+    {
+        
+    }
+     */
     public void DestroyRock()
     {
-
     }
 
     public void OnLand()
     {
+        animator.Play("landjump");
+        // animator.Play("landjump");
+        //animator.SetBool("hitGround", true);
     }
 
     private void Update()
     {
-        GetPlayerState();
-        UpdateSprite();
-    }
-
-
-    private void GetPlayerState()
-    {
-        velocity = cc.velocity;
-        jumping = cc.jumping;
-        falling = cc.falling;
-        onRope = cc.onRope;
-        offRope = cc.offRope;
-    }
-
-    private void UpdateSprite()
-    {
-        switch (currentState)
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y > 0 && !jumpUp)
         {
-            case 0: // on ground/rope
-                if (jumping)
-                {
-                    currentState = 1;
-                    if (offRope)
-                    {
-                        // jumping off a rope
-                        maxTime = jumpRopeTime;
-                        frameTimer = 0;
-                    }
-                    else
-                    {
-                        // jumping off the ground
-                        maxTime = jumpTime;
-                        frameTimer = 0;
-                    }
-                }
-                else if (velocity.y != 0)
-                {
-                    // falling off a platform
-                    currentState = 2;
-                }
-                break;
-            case 1: // jumping
-                if (velocity.y == 0 && !onRope)
-                {
-                    // landing
-                    maxTime = landTime;
-                    currentState = 3;
-                    frameTimer = 0;
-                }
-                else if (onRope)
-                {
-                    // attaching to rope
-                    currentState = 0;
-                    frameTimer = 0;
-                }
-                else
-                {
-                    // frame countdown
-                    frameTimer += Time.deltaTime;
-                    if (frameTimer >= maxTime)
-                    {
-                        currentState = 2;
-                    }
-                }
-                break;
-            case 2: // falling
-                if (velocity.y == 0 && !onRope)
-                {
-                    // landing
-                    maxTime = landTime;
-                    currentState = 3;
-                    frameTimer = 0;
-                }
-                else if (onRope)
-                {
-                    // attaching to rope
-                    currentState = 0;
-                    frameTimer = 0;
-                }
-                break;
-            case 3: // landing
-                if (jumping)
-                {
-                    // jumping off the ground
-                    currentState = 1;
-                    maxTime = jumpTime;
-                    frameTimer = 0;
-                }
-                else if (velocity.y != 0)
-                {
-                    // falling off a platform
-                    currentState = 2;
-                }
-                else
-                {
-                    // frame countdown
-                    frameTimer += Time.deltaTime;
-                    if (frameTimer >= maxTime)
-                    {
-                        currentState = 0;
-                    }
-                }
-                break;
-            default:
-                Debug.Log("animator broke.");
-                return;
+            OnJump();
+            jumpUp = true;
+            animator.SetBool("hitGround", false);
         }
-
-        // gotta make sure there are 4 sprites in the array lol
-        sr.sprite = sprites[currentState];
-        sr.flipX = velocity.x < 0;
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y < 0 && jumpUp && !jumpFall)
+        {
+            animator.SetBool("PlayerJump", false);
+            jumpFall = true;
+            jumpUp = false;
+        }
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y == 0 && jumpFall && !jumpUp)
+        {
+            jumpFall = false;
+            jumpUp = false;
+            OnLand();
+        }
     }
 }
