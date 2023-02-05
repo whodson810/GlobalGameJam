@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class AnimatorController : MonoBehaviour
 {
-    AnimatorController animator;
+
+    Animator animator;
+    bool jumpUp;
+    bool jumpFall;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<AnimatorController>();
+        animator = GetComponent<Animator>();
+        jumpUp = false;
+        jumpFall = false;
     }
 
     public void OnJump()
     {
-
+        animator.Play("jump");
     }
 
     public void OnRoapJump()
@@ -33,6 +38,31 @@ public class AnimatorController : MonoBehaviour
 
     public void OnLand()
     {
+        animator.Play("landjump");
+    }
+
+    private void Update()
+    {
+        if (GetComponent<Rigidbody2D>().velocity.y > 0 && !jumpUp)
+        {
+            OnJump();
+            jumpUp = true;
+        }
+
+
+        if (GetComponent<Rigidbody2D>().velocity.y < 0 && jumpUp && !jumpFall)
+        {
+            jumpFall = true;
+            jumpUp = false;
+        }
+
+
+        if (GetComponent<Rigidbody2D>().velocity.y == 0 && jumpFall && !jumpUp)
+        {
+            jumpFall = false;
+            jumpUp = false;
+            OnLand();
+        }
 
     }
 }

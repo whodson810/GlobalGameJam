@@ -8,6 +8,7 @@ public class RockController : MonoBehaviour
 
     GameObject highlight;
     RootController root;
+    FallingSpikeController spike;
 
     public bool playerNearby { set; get; }
 
@@ -26,7 +27,8 @@ public class RockController : MonoBehaviour
         for (int i = 0; i < hits.Length && !hit; i++)
         {
             root = hits[i].GetComponent<RootController>();
-            hit = root != null;
+            spike = hits[i].GetComponent<FallingSpikeController>();
+            hit = (root != null || spike != null);
         }
 
         if (!hit)
@@ -38,3 +40,5 @@ public class RockController : MonoBehaviour
         highlight.SetActive(playerNearby && !cantBeBroken);
     }
 }
+
+
