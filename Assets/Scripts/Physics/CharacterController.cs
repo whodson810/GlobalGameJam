@@ -15,7 +15,6 @@ public class CharacterController : MonoBehaviour
     public float terminalVelocity = 10f;
     public float checkArea = 1.5f;
 
-    public Animator anim;
 
     public Vector2 velocity;
     public Vector2 direction;
@@ -44,7 +43,6 @@ public class CharacterController : MonoBehaviour
             jumping = false;
         if (!jumping)
         {
-            anim.SetBool("PlayerJump", true);
             return;
         }
 
@@ -65,7 +63,6 @@ public class CharacterController : MonoBehaviour
         velocity.y = jumpSpeed;
         transform.rotation = Quaternion.identity;
 
-        anim.SetBool("PlayerJump", true);
 
         if (animator)
         {
@@ -136,7 +133,6 @@ public class CharacterController : MonoBehaviour
         UpdateVelocity();
         UpdatePosition();
         CheckForFloor();
-        anim.SetBool("PlayerJump", true);
 
         if (jumping)
         {
