@@ -25,7 +25,7 @@ public class OnDeath : MonoBehaviour
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield return null;
     }
@@ -36,12 +36,16 @@ public class OnDeath : MonoBehaviour
         {
             falling = true;
             startHeight = transform.position.y;
-        }
-        else if (GetComponent<CharacterController>().velocity.y == 0 && falling && (startHeight-transform.position.y >= fallDamageHeight))
+        }   
+        else if (GetComponent<CharacterController>().velocity.y == 0 && falling)
         {
             falling = false;
-            InvokeDeath();
+            if ((startHeight - transform.position.y >= fallDamageHeight))
+            {
+                InvokeDeath();
+            }
         }
+
     }
 
 
