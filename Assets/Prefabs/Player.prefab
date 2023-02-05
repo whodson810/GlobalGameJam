@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: 991574b038d041c4b98cac893a6af75e, type: 3}
   cutSound: {fileID: 8300000, guid: c55cb99a255de294986b4ee9e2a2974b, type: 3}
-  climbSound: {fileID: 8300000, guid: 991574b038d041c4b98cac893a6af75e, type: 3}
+  climbSound: {fileID: 8300000, guid: 68f01d1fcb4066f4cb57951ba5b1928c, type: 3}
   jumping: 0
   falling: 0
   onRope: 0
