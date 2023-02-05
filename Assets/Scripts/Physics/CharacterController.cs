@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class CharacterController : MonoBehaviour
     private RootController rc;
 
     private AnimatorController animator;
+
+
 
     private void Start()
     {
@@ -61,6 +64,11 @@ public class CharacterController : MonoBehaviour
         {
             animator.OnJump();
         }
+    }
+
+    private void OnReset()
+    {
+        GetComponent<OnDeath>().InvokeDeath();
     }
 
     private void RopeJump()
