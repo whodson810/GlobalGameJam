@@ -195,6 +195,7 @@ public class RootController : MonoBehaviour
     {
         if (direction.x != 0)
         {
+            return;
             SwingOnRope(player, direction);
         }
         if (direction.y != 0)
