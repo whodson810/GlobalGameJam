@@ -1633,6 +1633,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1734918111201528323, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9034315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734918111201528323, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_Size.y
+      value: 3.6692576
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734918111201528323, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04932235
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734918111201528323, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.4406377
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008490, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: jumpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1933570513958008492, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1640,6 +1700,14 @@ PrefabInstance:
     - target: {fileID: 1933570513958008493, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008493, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933570513958008493, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1933570513958008493, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
       propertyPath: m_LocalPosition.x

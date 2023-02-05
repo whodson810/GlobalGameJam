@@ -15,6 +15,8 @@ public class CharacterController : MonoBehaviour
     public float terminalVelocity = 10f;
     public float checkArea = 1.5f;
 
+    public Animator anim;
+
     public Vector2 velocity;
     public Vector2 direction;
 
@@ -25,7 +27,7 @@ public class CharacterController : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<AnimatorController>();
+        animator = GetComponentInChildren<AnimatorController>();
         direction = Vector2.zero;
     }
 
@@ -41,7 +43,10 @@ public class CharacterController : MonoBehaviour
         if (velocity.y != 0)
             jumping = false;
         if (!jumping)
+        {
+            anim.SetBool("PlayerJump", true);
             return;
+        }
 
         velocity.y = jumpSpeed;
 
@@ -59,6 +64,8 @@ public class CharacterController : MonoBehaviour
         rc = null;
         velocity.y = jumpSpeed;
         transform.rotation = Quaternion.identity;
+
+        anim.SetBool("PlayerJump", true);
 
         if (animator)
         {
@@ -129,6 +136,8 @@ public class CharacterController : MonoBehaviour
         UpdateVelocity();
         UpdatePosition();
         CheckForFloor();
+        anim.SetBool("PlayerJump", true);
+
         if (jumping)
         {
             jumping = false;
