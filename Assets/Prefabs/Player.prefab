@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 1600584338667621337}
   - component: {fileID: 8506022107032935143}
   - component: {fileID: 6891581691563831994}
+  - component: {fileID: 2600602789450057675}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Player
@@ -234,10 +235,32 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
   - {fileID: 21300000, guid: 0c2fdeab726847c428cca72bedc82b5e, type: 3}
   - {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
-  jumpFrames: 20
-  jumpRopeFrames: 5
-  landFrames: 10
+  jumpTime: 0.4
+  jumpRopeTime: 0.2
+  landTime: 0.2
   frameTimer: 0
-  maxFrames: 0
+  maxTime: 0
   currentState: 0
+  lastState: 0
+  flowerTime: 0.25
   sr: {fileID: 0}
+--- !u!95 &2600602789450057675
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630995523442109247}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 529cf647d1c0f8344ac007a96b1dba48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: landjump
+  m_Name: flowerpick
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,8 +20,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
-    - time: 0.05
+      value: {fileID: 21300000, guid: 9686d9dffd8530d4497604f84e88dffa, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 70f76c1abb579bc41a7b23c18b92fc0f, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 7c33731b522bde44db0906228ff38763, type: 3}
+    - time: 0.5
       value: {fileID: 21300000, guid: 08772bef6f3256f42acda98a6175df94, type: 3}
     attribute: m_Sprite
     path: 
@@ -42,14 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
+    - {fileID: 21300000, guid: 9686d9dffd8530d4497604f84e88dffa, type: 3}
+    - {fileID: 21300000, guid: 70f76c1abb579bc41a7b23c18b92fc0f, type: 3}
+    - {fileID: 21300000, guid: 7c33731b522bde44db0906228ff38763, type: 3}
     - {fileID: 21300000, guid: 08772bef6f3256f42acda98a6175df94, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.06666667
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

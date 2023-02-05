@@ -35,6 +35,12 @@ public class AnimatorController : MonoBehaviour
      */
     public void DestroyRock()
     {
+        animator.Play("FlowerPick");
+    }
+
+    public void OnRope()
+    {
+        animator.Play("Standing");
     }
 
     public void OnLand()

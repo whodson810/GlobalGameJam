@@ -110,6 +110,11 @@ public class CharacterController : MonoBehaviour
     }
     private void RopeMove(Vector2 direction)
     {
+        if (animator)
+        {
+            animator.OnRope();
+        }
+
         rc.MoveOnRope(gameObject, direction);
     }
 
@@ -338,6 +343,11 @@ public class CharacterController : MonoBehaviour
 
     private void AttachToRope(Transform rope)
     {
+        if (animator)
+        {
+            animator.OnRope();
+        }
+
         transform.parent = rope;
         velocity = Vector2.zero;
         rc = rope.GetComponent<RootController>();
