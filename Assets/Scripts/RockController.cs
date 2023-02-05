@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RockController : MonoBehaviour
 {
+    public bool cantBeBroken = false;
+
     GameObject highlight;
     RootController root;
 
@@ -33,6 +35,6 @@ public class RockController : MonoBehaviour
 
     private void Update()
     {
-        highlight.SetActive(playerNearby);
+        highlight.SetActive(playerNearby && !cantBeBroken);
     }
 }

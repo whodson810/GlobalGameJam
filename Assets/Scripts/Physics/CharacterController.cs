@@ -91,13 +91,15 @@ public class CharacterController : MonoBehaviour
     private void OnBreakRock()
     {
         CheckForRock();
-        if (animator)
-        {
-            animator.DestroyRock();
-        }
         if (rock != null)
         {
+            if (rock.GetComponent<RockController>().cantBeBroken)
+                return;
             Destroy(rock);
+            if (animator)
+            {
+                animator.DestroyRock();
+            }
             rock = null;
         }
 

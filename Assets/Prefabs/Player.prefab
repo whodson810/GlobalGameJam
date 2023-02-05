@@ -55,7 +55,7 @@ MonoBehaviour:
   jumpSpeed: 7.5
   moveSpeed: 5
   terminalVelocity: 10
-  checkArea: 1.5
+  checkArea: 2.5
   velocity: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   rock: {fileID: 0}
