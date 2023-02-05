@@ -2396,6 +2396,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 529cf647d1c0f8344ac007a96b1dba48, type: 2}
+    - target: {fileID: 7772719941031883428, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: fallDamageHeight
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7405113081358921862, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba8594c1f885435428b813666df6fe0a, type: 3}

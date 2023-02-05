@@ -27,6 +27,10 @@ public class FallingRootController : MonoBehaviour
         }
         else
         {
+            foreach (Transform child in gameObject.transform)
+            {
+                child.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
+            }
             GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
             Fall?.Invoke();
         }
