@@ -29,13 +29,13 @@ public class RockController : MonoBehaviour
             RootController root = hits[i].GetComponent<RootController>();
             if (root != null)
                 roots.Add(root);
-            spike = hits[i].GetComponent<FallingRootController>();
+            if (spike == null)
+                spike = hits[i].GetComponent<FallingRootController>();
             hit = (root != null || spike != null) || hit;
         }
 
         if (spike != null)
         {
-            Debug.Log("connecting");
             spike.SetAnchorPoint(gameObject);
             return;
         }
