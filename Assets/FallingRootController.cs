@@ -22,7 +22,9 @@ public class FallingRootController : MonoBehaviour
         {
             foreach (Transform child in gameObject.transform)
             {
-                child.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
+                Rigidbody2D rb = child.gameObject.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                    rb.constraints = ~RigidbodyConstraints2D.FreezePositionY;
             }
             Camera.main.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(fallSound);
             GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
