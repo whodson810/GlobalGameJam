@@ -8,20 +8,10 @@ public class FallingRootController : MonoBehaviour
     public GameObject anchorPoint;
     public UnityEvent Fall;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(anchorPoint == null)
-        {
-            Debug.LogError("No anchor point detected, self-destruct process initiated");
-            Destroy(gameObject);
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(anchorPoint != null)
+        if (anchorPoint != null)
         {
             return;
         }
@@ -34,6 +24,11 @@ public class FallingRootController : MonoBehaviour
             GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
             Fall?.Invoke();
         }
+    }
+
+    public void SetAnchorPoint(GameObject point)
+    {
+        anchorPoint = point;
     }
 }
 

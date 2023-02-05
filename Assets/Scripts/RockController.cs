@@ -8,7 +8,7 @@ public class RockController : MonoBehaviour
     public bool isSpike = false;
 
     GameObject highlight;
-    FallingRootController spike;
+    public FallingRootController spike;
 
     public bool playerNearby { set; get; }
 
@@ -31,6 +31,12 @@ public class RockController : MonoBehaviour
                 roots.Add(root);
             spike = hits[i].GetComponent<FallingRootController>();
             hit = (root != null || spike != null) || hit;
+        }
+
+        if (spike != null)
+        {
+            spike.SetAnchorPoint(gameObject);
+            return;
         }
 
         if (!hit)
