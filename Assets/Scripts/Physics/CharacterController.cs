@@ -158,7 +158,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            if (!jumping)
+            if (velocity.y < 0)
                 velocity.y = 0;
         }
         velocity.x = moveSpeed * direction.x;
@@ -263,8 +263,10 @@ public class CharacterController : MonoBehaviour
                 newPos.x = transform.position.x;
                 newPos.y += Mathf.Abs((floor.rotation * floor.localScale).y) / 2 + transform.localScale.y / 2;
                 falling = false;
-                if (!jumping)
+                if (velocity.y < 0)
+                {
                     velocity.y = 0;
+                }
                 break;
             case 2:
                 newPos.y = transform.position.y;
