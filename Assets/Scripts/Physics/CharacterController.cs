@@ -66,7 +66,7 @@ public class CharacterController : MonoBehaviour
 
         if (animator)
         {
-            animator.OnRoapJump();
+            animator.OnRopeJump();
         }
     }
 
@@ -84,7 +84,7 @@ public class CharacterController : MonoBehaviour
 
         if (animator)
         {
-            animator.OnMove(x);
+            //animator.OnMove(x);
         }
     }
 
@@ -217,9 +217,8 @@ public class CharacterController : MonoBehaviour
 
     private void CheckCollision(Transform floor)
     {
-
-        //*
-        // don't worry about this.
+        if (offRope)
+            return;
 
         int side = 0; // 0 = right, 1 = top, 2 = left, 3 = bottom
         Vector2 xAxis = (floor.rotation * (floor.localScale / 2)).normalized;
