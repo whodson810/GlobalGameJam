@@ -6,15 +6,16 @@ public class AnimatorController : MonoBehaviour
 {
     public CharacterController cc;
     public List<Sprite> sprites;
-    public int jumpFrames = 4;
-    public int jumpRopeFrames = 4;
-    public int landFrames = 4;
-    public int frameTimer = 0;
-    public int maxFrames = 0;
-    public int currentState = 0; // 0 = on ground/rope, 1 = jumping, 2 = falling, 3 = landing
+    public float jumpTime = 0.4f;
+    public float jumpRopeTime = 0.2f;
+    public float landTime = 0.2f;
+    public float frameTimer = 0;
+    public float maxTime = 0;
+    public int currentState = 0; // 0 = on ground/rope, 1 = jumping, 2 = falling, 3 = landing, 4 = flower
+    public int lastState = 0;
+    public float flowerTime = 0.25f;
 
     public SpriteRenderer sr;
-    //Animator animator;
     // Start is called before the first frame update
     Vector2 velocity;
     bool jumping = false;
@@ -30,21 +31,11 @@ public class AnimatorController : MonoBehaviour
 
     public void OnJump()
     {
-        //animator.Play("jump");
-        //animator.SetBool("PlayerJump", true);
     }
 
     public void OnRopeJump()
     {
-        //animator.Play("Standing");
     }
-
-    /*
-     *     public void OnMove(float horizontal)
-    {
-        
-    }
-     */
 
 
     public void DestroyRock()
@@ -54,37 +45,10 @@ public class AnimatorController : MonoBehaviour
 
     public void OnLand()
     {
-       // animator.Play("landjump");
-        //animator.SetBool("hitGround", true);
     }
 
     private void Update()
     {
-
-        /*
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y > 0 && !jumpUp)
-        {
-            OnJump();
-            jumpUp = true;
-            animator.SetBool("hitGround", false);
-        }
-
-
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y < 0 && jumpUp && !jumpFall)
-        {
-            animator.SetBool("PlayerJump", false);
-            jumpFall = true;
-            jumpUp = false;
-        }
-
-
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y == 0 && jumpFall && !jumpUp)
-        {
-            jumpFall = false;
-            jumpUp = false;
-            OnLand();
-        }
-        //*/
         GetPlayerState();
         UpdateSprite();
     }
@@ -110,13 +74,13 @@ public class AnimatorController : MonoBehaviour
                     if (offRope)
                     {
                         // jumping off a rope
-                        maxFrames = jumpRopeFrames;
+                        maxTime = jumpRopeTime;
                         frameTimer = 0;
                     }
                     else
                     {
                         // jumping off the ground
-                        maxFrames = jumpFrames;
+                        maxTime = jumpTime;
                         frameTimer = 0;
                     }
                 }
@@ -130,7 +94,7 @@ public class AnimatorController : MonoBehaviour
                 if (velocity.y == 0 && !onRope)
                 {
                     // landing
-                    maxFrames = landFrames;
+                    maxTime = landTime;
                     currentState = 3;
                     frameTimer = 0;
                 }
@@ -143,8 +107,8 @@ public class AnimatorController : MonoBehaviour
                 else
                 {
                     // frame countdown
-                    frameTimer += 1;
-                    if (frameTimer >= maxFrames)
+                    frameTimer += Time.deltaTime;
+                    if (frameTimer >= maxTime)
                     {
                         currentState = 2;
                     }
@@ -154,7 +118,7 @@ public class AnimatorController : MonoBehaviour
                 if (velocity.y == 0 && !onRope)
                 {
                     // landing
-                    maxFrames = landFrames;
+                    maxTime = landTime;
                     currentState = 3;
                     frameTimer = 0;
                 }
@@ -170,7 +134,7 @@ public class AnimatorController : MonoBehaviour
                 {
                     // jumping off the ground
                     currentState = 1;
-                    maxFrames = jumpFrames;
+                    maxTime = jumpTime;
                     frameTimer = 0;
                 }
                 else if (velocity.y != 0)
@@ -181,8 +145,8 @@ public class AnimatorController : MonoBehaviour
                 else
                 {
                     // frame countdown
-                    frameTimer += 1;
-                    if (frameTimer >= maxFrames)
+                    frameTimer += Time.deltaTime;
+                    if (frameTimer >= maxTime)
                     {
                         currentState = 0;
                     }

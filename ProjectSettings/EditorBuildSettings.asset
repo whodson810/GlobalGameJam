@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 72d66c5782ffdc5479157020825266aa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ropescene.unity
     guid: 8a14c9eeaebad9349bac14351e378190
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: b005ac1d568f4fa458c7e36919d14229
   m_configObjects: {}

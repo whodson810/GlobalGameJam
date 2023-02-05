@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f17376cae1c4c40897dea47cae546b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toLoad: ropescene
+  toLoad: GameScene
 --- !u!4 &239813295
 Transform:
   m_ObjectHideFlags: 0
