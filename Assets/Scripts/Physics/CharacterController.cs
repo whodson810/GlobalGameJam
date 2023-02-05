@@ -5,9 +5,6 @@ using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
-    public AudioClip jumpSound;
-    public AudioClip cutSound;
-    public AudioClip climbSound;
     public bool jumping = false;
     public bool falling = false;
     public bool onRope = false;
@@ -44,7 +41,6 @@ public class CharacterController : MonoBehaviour
         jumping = v.isPressed;
         if (velocity.y != 0)
             jumping = false;
-        Camera.main.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(jumpSound);
         if (onRope)
         {
             RopeJump();
@@ -104,7 +100,6 @@ public class CharacterController : MonoBehaviour
             if (rock.GetComponent<RockController>().cantBeBroken)
                 return;
             Destroy(rock);
-            Camera.main.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(cutSound);
             if (animator)
             {
                 animator.DestroyRock();
@@ -120,7 +115,6 @@ public class CharacterController : MonoBehaviour
             animator.OnRope();
         }
 
-        Camera.main.transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(climbSound);
         rc.MoveOnRope(gameObject, direction);
     }
 
