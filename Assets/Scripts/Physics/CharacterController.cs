@@ -14,6 +14,8 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float terminalVelocity = 10f;
     public float checkArea = 1.5f;
+    public int offRootFrames = 0;
+    public int frameMax = 4;
 
 
     public Vector2 velocity;
@@ -59,7 +61,6 @@ public class CharacterController : MonoBehaviour
         onRope = false;
         offRope = true;
         transform.parent = null;
-        rc = null;
         velocity.y = jumpSpeed;
         transform.rotation = Quaternion.identity;
 
@@ -175,22 +176,6 @@ public class CharacterController : MonoBehaviour
 
     private void CheckForFloor()
     {
-        /*
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
-        bool hit = false;
-        Transform floor = null;
-        for (int i = 0; i < hits.Length && !hit; i++)
-        {
-            if (hits[i].CompareTag("Floor"))
-            {
-                floor = hits[i].transform;
-                hit = true;
-            }
-        }
-
-        falling = !hit;
-        //*/
-        //*
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
         List<Transform> floors = new();
         for (int i = 0; i < hits.Length; i++)
@@ -212,7 +197,6 @@ public class CharacterController : MonoBehaviour
         {
             falling = true;
         }
-        //*/
     }
 
     private void CheckCollision(Transform floor)
@@ -251,33 +235,35 @@ public class CharacterController : MonoBehaviour
         }
 
         Vector2 newPos = floor.position;
-        falling = true;
         switch (side)
         {
             case 0:
                 newPos.y = transform.position.y;
                 newPos.x += Mathf.Abs((floor.rotation * floor.localScale).x) / 2 + transform.localScale.x / 2;
+                falling = true;
                 if (velocity.x < 0)
                     velocity.x = 0;
                 break;
             case 1:
                 newPos.x = transform.position.x;
                 newPos.y += Mathf.Abs((floor.rotation * floor.localScale).y) / 2 + transform.localScale.y / 2;
-                falling = false;
                 if (velocity.y < 0)
                 {
+                    falling = false;
                     velocity.y = 0;
                 }
                 break;
             case 2:
                 newPos.y = transform.position.y;
                 newPos.x -= Mathf.Abs((floor.rotation * floor.localScale).x) / 2 + transform.localScale.x / 2;
+                falling = true;
                 if (velocity.x > 0)
                     velocity.x = 0;
                 break;
             case 3:
                 newPos.x = transform.position.x;
                 newPos.y -= Mathf.Abs((floor.rotation * floor.localScale).y) / 2 + transform.localScale.y / 2;
+                falling = true;
                 if (velocity.y > 0)
                     velocity.y = 0;
                 break;
@@ -311,9 +297,12 @@ public class CharacterController : MonoBehaviour
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
         bool hit = false;
+        bool floor = false;
         Transform rope = null;
         for (int i = 0; i < hits.Length; i++)
         {
+            if (hits[i].CompareTag("Floor"))
+                floor = true;
             if (hits[i].CompareTag("Rope"))
             {
                 rope = hits[i].transform;
@@ -323,13 +312,23 @@ public class CharacterController : MonoBehaviour
 
         if (!hit)
         {
-            offRope = false;
+            if (offRope && !floor)
+            {
+                offRootFrames += 1;
+                if (offRootFrames == frameMax)
+                    offRope = false;
+            }
+            else
+            {
+                offRootFrames = 0;
+            }
             onRope = false;
         }
         else if (!offRope && hit)
         {
             onRope = true;
             AttachToRope(rope);
+            offRootFrames = 0;
         }
     }
 
