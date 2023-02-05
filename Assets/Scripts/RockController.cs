@@ -5,10 +5,11 @@ using UnityEngine;
 public class RockController : MonoBehaviour
 {
     public bool cantBeBroken = false;
+    public bool isSpike = false;
 
     GameObject highlight;
     RootController root;
-    FallingSpikeController spike;
+    FallingRootController spike;
 
     public bool playerNearby { set; get; }
 
@@ -17,7 +18,10 @@ public class RockController : MonoBehaviour
         playerNearby = false;
         highlight = transform.GetChild(0).gameObject;
         FindRoot();
-        root.RegisterRock(gameObject);
+        if (!isSpike)
+        {
+            root.RegisterRock(gameObject);
+        }
     }
 
     private void FindRoot()
@@ -27,8 +31,11 @@ public class RockController : MonoBehaviour
         for (int i = 0; i < hits.Length && !hit; i++)
         {
             root = hits[i].GetComponent<RootController>();
-            spike = hits[i].GetComponent<FallingSpikeController>();
+            spike = hits[i].GetComponent<FallingRootController>();
             hit = (root != null || spike != null);
+            if (spike != null) {
+                isSpike = true;
+            }
         }
 
         if (!hit)
