@@ -23,16 +23,12 @@ public class AnimatorController : MonoBehaviour
 
     public void OnRopeJump()
     {
+        jumpUp = false;
+        jumpFall = false;
         animator.Play("Standing");
         //animator.Play("Standing");
     }
 
-    /*
-     *     public void OnMove(float horizontal)
-    {
-        
-    }
-     */
     public void DestroyRock()
     {
         animator.Play("FlowerPick");
@@ -40,6 +36,8 @@ public class AnimatorController : MonoBehaviour
 
     public void OnRope()
     {
+        jumpFall = false;
+        animator.SetBool("PlayerJump", false);
         animator.Play("Standing");
     }
 
