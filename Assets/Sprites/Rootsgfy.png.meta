@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,994 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Rootsgfy_0
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1578
+        width: 391
+        height: 582
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 41, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c5f8936dd10ed4c9b4beda9de2c069
+      internalID: -1080809840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2041
+        width: 16
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9797a704cf63fe48954d4eff241dea8
+      internalID: -1546298251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_2
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1932
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d95a2c7cc45c444e9835d1a6b573eab
+      internalID: -1895455420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1884
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920d955f9b42e274194fb03073916dfa
+      internalID: -1125695874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_4
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1891
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c7407459608a84bbc574b0f5f559be
+      internalID: -203808941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_5
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1864
+        width: 5
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9ef0f3f377d63499799cae6beb280c
+      internalID: 724517887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_6
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1845
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a88aeb8f9cd664fb7e53bc6e86e43f
+      internalID: -117933228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_7
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1837
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d17ad8a1935a214a8c1c0859805859b
+      internalID: -952664245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_8
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1172
+        width: 143
+        height: 416
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3b9cc0077ef834d9bbd25b2fbe6add
+      internalID: 403648732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1579
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99b635d94918a843b12bbf50bbfdf08
+      internalID: -2108709639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_10
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 1399
+        width: 109
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5593a7a5990f40c4bbf4e8d8875fc45b
+      internalID: -1259073521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_11
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1558
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fe743ce53fdf5448058fbd10a4e451
+      internalID: -1266320252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_12
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1318
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9e2f98c4803984482be291d82ae8cf
+      internalID: -217316338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_13
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1326
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be3223c4e0e2364cb6c5f47cf9e6f7d
+      internalID: -652511836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_14
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1324
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15774ce8bd3e1364698092a82a648c6d
+      internalID: -1555293542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_15
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1290
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0074698f39626d847a941bc7bd1e69b9
+      internalID: 1921273035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1311
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab12e7273e3093499e9f11696cfaa75
+      internalID: -336394549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_17
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1307
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97f4f9e314c41547840d1a78dd68f91
+      internalID: -1811308602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_18
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 1278
+        width: 5
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d950aa82cefb149a58baaa8bff3da0
+      internalID: 1453549739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_19
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 990
+        width: 129
+        height: 312
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d3715e304569224b840427cc8e3407c
+      internalID: 254176270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_20
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1246
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc8624365ca38c4389a79c37f2f5f39
+      internalID: 1755294515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_21
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1178
+        width: 8
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cd767d61953f449879629cb7d9e6cd
+      internalID: 229917042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_22
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1157
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7865541c78beb04391032bcf8c8a060
+      internalID: -1611967608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_23
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1017
+        width: 23
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78bc66ec45f8aad4588a5c2c0a9879f5
+      internalID: -411708242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_24
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 792
+        width: 112
+        height: 326
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c65663fb20539642a8eb39e3620eda4
+      internalID: -1239114935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_25
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1117
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67ad9cd76af0e843879707e2ea16bc9
+      internalID: -356695693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_26
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1080
+        width: 7
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af64334844d34d04baada9d83d00ae4a
+      internalID: -1420242558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_27
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1060
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f200c5ed8f13f41a5b78b23579e8a1
+      internalID: -1590768973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_28
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1058
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35c758cd88249842ad7c6035ec7875e
+      internalID: 1492029579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_29
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 969
+        width: 19
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb5ccf32e166ca41ad36f8e5db9aa1c
+      internalID: -1870582886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_30
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 961
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841fdf0c5bcf7ab46a829e743704fe18
+      internalID: 1484936992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_31
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 899
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b21a3d80f095b4e901cd198c48fcb6
+      internalID: -1384983685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_32
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 777
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe306687f24d8a4482bebfeae55cd23
+      internalID: 1652310955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_33
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 548
+        width: 103
+        height: 326
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa8d4ae89f9421429464aefb7cce150
+      internalID: -1400462162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_34
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 656
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b6899b8a0c90b4cadcf2dc99f1d8d1
+      internalID: -704794864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_35
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 610
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ed0056dd1504a4280694fd795b0d7e
+      internalID: 897261914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_36
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 382
+        width: 83
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3396e9fa13db084aa46d75e36e27c52
+      internalID: 1411405721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_37
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 573
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb0f47042768f348b43f131dd67fee7
+      internalID: -2013497476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_38
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 539
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2cf58f52999a04d9250e9201a4f06a
+      internalID: 605803121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_39
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 201
+        width: 76
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ea0e6aab1ddd546abe755f36c6447b
+      internalID: 983672913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_40
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 518
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa7638ee0b88f54ba90ba071446d6d8
+      internalID: -456358398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_41
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 425
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e2c07907ce86a4c93f1d71cf221fa7
+      internalID: -283167599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_42
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 225
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb09921641679c41842248b91b0ef15
+      internalID: 1316533654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_43
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 203
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08d016dd5a40b94f996d7710d89334d
+      internalID: -1421490310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_44
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 198
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e18671f90204484ea90dc18aa37d3cf
+      internalID: -2044693587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_45
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 198
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf6d707109950c488a2288b4c960ca5
+      internalID: 1684269992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rootsgfy_46
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 0
+        width: 117
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f4acb477f1e7247b94f63d9194ef9c
+      internalID: 404272682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +1101,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rootsgfy_30: 1484936992
+      Rootsgfy_40: -456358398
+      Rootsgfy_33: -1400462162
+      Rootsgfy_43: -1421490310
+      Rootsgfy_3: -1125695874
+      Rootsgfy_25: -356695693
+      Rootsgfy_19: 254176270
+      Rootsgfy_17: -1811308602
+      Rootsgfy_12: -217316338
+      Rootsgfy_42: 1316533654
+      Rootsgfy_23: -411708242
+      Rootsgfy_35: 897261914
+      Rootsgfy_7: -952664245
+      Rootsgfy_20: 1755294515
+      Rootsgfy_41: -283167599
+      Rootsgfy_18: 1453549739
+      Rootsgfy_38: 605803121
+      Rootsgfy_26: -1420242558
+      Rootsgfy_0: -1080809840
+      Rootsgfy_6: -117933228
+      Rootsgfy_8: 403648732
+      Rootsgfy_22: -1611967608
+      Rootsgfy_4: -203808941
+      Rootsgfy_11: -1266320252
+      Rootsgfy_24: -1239114935
+      Rootsgfy_5: 724517887
+      Rootsgfy_39: 983672913
+      Rootsgfy_15: 1921273035
+      Rootsgfy_36: 1411405721
+      Rootsgfy_44: -2044693587
+      Rootsgfy_45: 1684269992
+      Rootsgfy_9: -2108709639
+      Rootsgfy_1: -1546298251
+      Rootsgfy_29: -1870582886
+      Rootsgfy_28: 1492029579
+      Rootsgfy_34: -704794864
+      Rootsgfy_46: 404272682
+      Rootsgfy_37: -2013497476
+      Rootsgfy_2: -1895455420
+      Rootsgfy_14: -1555293542
+      Rootsgfy_21: 229917042
+      Rootsgfy_27: -1590768973
+      Rootsgfy_32: 1652310955
+      Rootsgfy_16: -336394549
+      Rootsgfy_13: -652511836
+      Rootsgfy_31: -1384983685
+      Rootsgfy_10: -1259073521
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
