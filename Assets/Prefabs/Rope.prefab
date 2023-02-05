@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 219525768283170250}
   m_Layer: 0
   m_Name: Rope
-  m_TagString: Rope
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   swingAngle: 45
   pointIndex: 0
   swingDirection: 0
-  point1Locked: 1
+  point1Locked: 0
   point2Locked: 0
   rock1: {fileID: 0}
   rock2: {fileID: 0}
