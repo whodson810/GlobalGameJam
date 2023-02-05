@@ -5,27 +5,27 @@ using UnityEngine;
 public class AnimatorController : MonoBehaviour
 {
     Animator animator;
-    bool jumpUp;
-    bool jumpFall;
+    bool jumping;
     void Start()
     {
         animator = GetComponent<Animator>();
-        jumpUp = false;
-        jumpFall = false;
+        jumping = false;
     }
 
     public void OnJump()
     {
         //animator.Play("jump");
+        //jumpUp = true;
+        jumping = true;
         animator.SetBool("PlayerJump", true);
-        //animator.SetBool("PlayerJump", true);
+
     }
 
     public void OnRopeJump()
     {
-        jumpUp = false;
-        jumpFall = false;
-        animator.Play("Standing");
+
+        jumping = true;
+        animator.SetBool("PlayerJump", true);
         //animator.Play("Standing");
     }
 
@@ -36,36 +36,25 @@ public class AnimatorController : MonoBehaviour
 
     public void OnRope()
     {
-        jumpFall = false;
+        //jumpFall = false;
+        jumping = false;
         animator.SetBool("PlayerJump", false);
         animator.Play("Standing");
     }
 
     public void OnLand()
     {
+        jumping = false;
+        animator.SetBool("PlayerJump", false);
         animator.Play("landjump");
-        // animator.Play("landjump");
-        //animator.SetBool("hitGround", true);
+
     }
 
     private void Update()
     {
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y > 0 && !jumpUp)
+        //update
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y == 0 && jumping)
         {
-            OnJump();
-            jumpUp = true;
-            animator.SetBool("hitGround", false);
-        }
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y < 0 && jumpUp && !jumpFall)
-        {
-            animator.SetBool("PlayerJump", false);
-            jumpFall = true;
-            jumpUp = false;
-        }
-        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y == 0 && jumpFall && !jumpUp)
-        {
-            jumpFall = false;
-            jumpUp = false;
             OnLand();
         }
     }
