@@ -55,7 +55,7 @@ public class RootController : MonoBehaviour
         {
             timer += Time.deltaTime;
             float angle = Mathf.Sin(timer);
-            angle *= swingAngle;
+            angle *= swingAngle * swingDirection;
             Quaternion swingRotation = Quaternion.Euler(0, 0, angle);
             Vector2 newPos = rotationPoint + (Vector2)(swingRotation * points[points.Count - 1]);
             transform.position = newPos;
@@ -85,9 +85,9 @@ public class RootController : MonoBehaviour
         Vector2 newPosition = transform.position;
         
         if (point1Locked)
-            newPosition -= (Vector2)(transform.rotation * points[points.Count - 1]);
+            newPosition -= (Vector2)(Quaternion.Inverse(transform.rotation) * points[points.Count - 1]);
         if (point2Locked)
-            newPosition -= (Vector2)(transform.rotation * points[0]);
+            newPosition -= (Vector2)(Quaternion.Inverse(transform.rotation) * points[0]);
         newPosition.y -= transform.localScale.y / 2;
         transform.position = newPosition;
 
@@ -109,10 +109,7 @@ public class RootController : MonoBehaviour
             points.Add(firstPoint + i * Vector2.down);
         }
 
-        if (point1Locked)
-            rotationPoint = (Vector2)transform.position + points[0];
-        if (point2Locked)
-            rotationPoint = (Vector2)transform.position + points[points.Count - 1];
+        rotationPoint = (Vector2)transform.position + points[0];
     }
 
     // Only use this when getting a point to set the player's position
@@ -227,6 +224,7 @@ public class RootController : MonoBehaviour
         if (points.Count == 0)
             MakePoints();
         Vector2 rockPos = transform.rotation * (rock.transform.position - transform.position);
+        Debug.Log(rock.name);
         if (rock1 == null)
         {
             Vector2 pos1 = GetUnscaledPoint(0);
@@ -234,10 +232,13 @@ public class RootController : MonoBehaviour
 
             Vector2 dist1 = pos2 - pos1;
             Vector2 dist2 = rockPos - pos1;
+            Debug.Log(dist1);
+            Debug.Log(dist2);
             if (dist1.magnitude > dist2.magnitude)
             {
+                Debug.Log(rock.name + " will be rock1 for " + gameObject.name);
                 rock1 = rock;
-                rock.transform.position = transform.position + transform.rotation * GetUnscaledPoint(0);
+                rock.transform.position = transform.position + Quaternion.Inverse(transform.rotation) * pos1;
                 return true;
             }
         }
@@ -249,10 +250,13 @@ public class RootController : MonoBehaviour
 
             Vector2 dist1 = pos2 - pos1;
             Vector2 dist2 = rockPos - pos1;
+            Debug.Log(dist2);
+            Debug.Log(dist1);
             if (dist1.magnitude > dist2.magnitude)
             {
+                Debug.Log(rock.name + " will be rock2 for " + gameObject.name);
                 rock2 = rock;
-                rock.transform.position = transform.position + transform.rotation * GetUnscaledPoint(points.Count - 1);
+                rock.transform.position = transform.position + Quaternion.Inverse(transform.rotation) * pos1;
                 return true;
             }
         }

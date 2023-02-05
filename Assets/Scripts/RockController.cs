@@ -7,7 +7,6 @@ public class RockController : MonoBehaviour
     public bool cantBeBroken = false;
 
     GameObject highlight;
-    RootController root;
     FallingSpikeController spike;
 
     public bool playerNearby { set; get; }
@@ -17,22 +16,37 @@ public class RockController : MonoBehaviour
         playerNearby = false;
         highlight = transform.GetChild(0).gameObject;
         FindRoot();
-        root.RegisterRock(gameObject);
     }
 
     private void FindRoot()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+        List<RootController> roots = new();
         bool hit = false;
-        for (int i = 0; i < hits.Length && !hit; i++)
+        for (int i = 0; i < hits.Length; i++)
         {
-            root = hits[i].GetComponent<RootController>();
+            RootController root = hits[i].GetComponent<RootController>();
+            if (root != null)
+                roots.Add(root);
             spike = hits[i].GetComponent<FallingSpikeController>();
-            hit = (root != null || spike != null);
+            hit = (root != null || spike != null) || hit;
         }
 
         if (!hit)
+        {
             Destroy(gameObject);
+        }
+
+        bool registered = false;
+        foreach (RootController rc in roots)
+        {
+            registered = rc.RegisterRock(gameObject) || registered;
+        }
+
+        if (!registered)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
