@@ -7,7 +7,7 @@ public class tutorial : MonoBehaviour
     GameObject player;
     private void Start()
     {
-        if (transform.position.y > 0)
+        if (transform.position.y > 0 && transform.position.y < 70)
         {
             enabled = false;
         }
@@ -19,6 +19,10 @@ public class tutorial : MonoBehaviour
     {
         if (player == null)
             return;
-        transform.GetChild(0).gameObject.SetActive(player.transform.position.y < 0);
+        if (transform.position.y < 0)
+            transform.GetChild(0).gameObject.SetActive(player.transform.position.y < 0);
+        if (transform.position.y > 70)
+            transform.GetChild(0).gameObject.SetActive(player.transform.position.y > 70);
+
     }
 }
