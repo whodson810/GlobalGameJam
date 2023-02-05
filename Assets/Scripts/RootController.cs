@@ -9,10 +9,12 @@ public class RootController : MonoBehaviour
     public bool swinging = false;
     public float timer = 0;
     public float swingAngle = 70;
+    public float lerpTime = 0.5f;
     public int pointIndex = 0;
     public int swingDirection = 0; // -1 = counterclockwise, 1 = clockwise
     public bool point1Locked = false; // points[0]
     public bool point2Locked = false; // points[points.Count - 1]
+    public bool lerping = false;
     public GameObject rock1;
     public GameObject rock2;
 
@@ -41,14 +43,17 @@ public class RootController : MonoBehaviour
 
     private void UpdateSwing()
     {
+        if (!swinging)
+            return;
         if (point1Locked && point2Locked)
             return;
         if (transform.childCount == 0)
         {
-            transform.rotation = initialRotation;
-            transform.position = initialPosition;
             swinging = false;
             timer = 0;
+            StartCoroutine(LerpToRest(transform.position, transform.rotation));
+            //transform.rotation = initialRotation;
+            //transform.position = initialPosition;
         }
 
         if (swinging)
@@ -64,6 +69,34 @@ public class RootController : MonoBehaviour
         }
     }
 
+
+    IEnumerator LerpToRest(Vector2 position, Quaternion rotation)
+    {
+        if (lerping)
+            yield break;
+        lerping = true;
+        float time = Time.time;
+        float progress = 0;
+
+        while (progress < 1)
+        {
+            if (swinging)
+            {
+                transform.position = initialPosition;
+                transform.rotation = initialRotation;
+                lerping = false;
+                yield break;
+            }
+            progress = (Time.time - time) / lerpTime;
+            transform.position = Vector2.Lerp(position, initialPosition, progress);
+            transform.rotation = Quaternion.Lerp(rotation, initialRotation, progress);
+            yield return null;
+        }
+
+        lerping = false;
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+    }
 
     private void UpdatePoints()
     {
@@ -89,11 +122,12 @@ public class RootController : MonoBehaviour
         if (point2Locked)
             newPosition -= (Vector2)(Quaternion.Inverse(transform.rotation) * points[0]);
         newPosition.y -= transform.localScale.y / 2;
-        transform.position = newPosition;
-
         initialPosition = newPosition;
         initialRotation = Quaternion.identity;
-        transform.rotation = initialRotation;
+        StartCoroutine(LerpToRest(transform.position, transform.rotation));
+        //transform.rotation = initialRotation;
+        //transform.position = newPosition;
+
 
         MakePoints();
     }

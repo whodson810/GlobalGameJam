@@ -129,9 +129,11 @@ MonoBehaviour:
   swinging: 0
   timer: 0
   swingAngle: 45
+  lerpTime: 0.5
   pointIndex: 0
   swingDirection: 0
   point1Locked: 0
   point2Locked: 0
+  lerping: 0
   rock1: {fileID: 0}
   rock2: {fileID: 0}
