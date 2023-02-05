@@ -28,6 +28,9 @@ public class CharacterController : MonoBehaviour
 
     private void Start()
     {
+        // 1920 x 1080 60fps in fullscreen
+        // yes this is the wrong place to put this no i don't care
+        Screen.SetResolution(1920, 1080, true, 60);
         animator = GetComponentInChildren<AnimatorController>();
         direction = Vector2.zero;
     }
@@ -35,14 +38,14 @@ public class CharacterController : MonoBehaviour
     // this function is called by the input component on the player object
     private void OnJump(InputValue v)
     {
+        jumping = v.isPressed;
+        if (velocity.y != 0)
+            jumping = false;
         if (onRope)
         {
             RopeJump();
             return;
         }
-        jumping = v.isPressed;
-        if (velocity.y != 0)
-            jumping = false;
         if (!jumping)
         {
             return;
@@ -116,6 +119,7 @@ public class CharacterController : MonoBehaviour
         CheckForRock();
         if (onRope)
         {
+            velocity = Vector2.zero;
             OnRopeUpdate();
         }
         else
