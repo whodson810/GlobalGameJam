@@ -1327,11 +1327,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1059022276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2630995523442109247, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+  m_PrefabInstance: {fileID: 1933570514406435222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1138638970 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8012495366924875611, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
   m_PrefabInstance: {fileID: 1933570514406435222}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1138638973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059022276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb51b21e677e4f947b77762e7ade7190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1347876463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,7 +2617,13 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 529cf647d1c0f8344ac007a96b1dba48, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 8012495366924875611, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 529cf647d1c0f8344ac007a96b1dba48, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6984726194526570784, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
+    - {fileID: 562431468723734407, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba8594c1f885435428b813666df6fe0a, type: 3}
 --- !u!1001 &3881973243595724951
 PrefabInstance:
