@@ -18,18 +18,22 @@ public class AnimatorController : MonoBehaviour
 
     public void OnJump()
     {
-        animator.Play("jump");
+        //animator.Play("jump");
+        animator.SetBool("PlayerJump", true);
     }
 
-    public void OnRoapJump()
+    public void OnRopeJump()
     {
-
+        animator.Play("Standing");
     }
 
-    public void OnMove(float horizontal)
+    /*
+     *     public void OnMove(float horizontal)
     {
         
     }
+     */
+
 
     public void DestroyRock()
     {
@@ -39,25 +43,28 @@ public class AnimatorController : MonoBehaviour
     public void OnLand()
     {
         animator.Play("landjump");
+        //animator.SetBool("hitGround", true);
     }
 
     private void Update()
     {
-        if (GetComponent<Rigidbody2D>().velocity.y > 0 && !jumpUp)
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y > 0 && !jumpUp)
         {
             OnJump();
             jumpUp = true;
+            animator.SetBool("hitGround", false);
         }
 
 
-        if (GetComponent<Rigidbody2D>().velocity.y < 0 && jumpUp && !jumpFall)
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y < 0 && jumpUp && !jumpFall)
         {
+            animator.SetBool("PlayerJump", false);
             jumpFall = true;
             jumpUp = false;
         }
 
 
-        if (GetComponent<Rigidbody2D>().velocity.y == 0 && jumpFall && !jumpUp)
+        if (transform.parent.gameObject.GetComponent<CharacterController>().velocity.y == 0 && jumpFall && !jumpUp)
         {
             jumpFall = false;
             jumpUp = false;
