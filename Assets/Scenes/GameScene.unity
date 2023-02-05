@@ -2132,10 +2132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
-      propertyPath: cantBeBroken
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -2975,6 +2971,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
+      propertyPath: cantBeBroken
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3021,7 +3021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425828, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_Name
-      value: Rock (2)
+      value: BREAK ME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
@@ -7064,6 +7064,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
+      propertyPath: cantBeBroken
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 122
@@ -7110,7 +7114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425828, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_Name
-      value: Rock (65)
+      value: BREAK ME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
@@ -9408,17 +9412,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
+      propertyPath: cantBeBroken
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 164
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9462,7 +9462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425828, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_Name
-      value: Rock (27)
+      value: BREAK ME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
@@ -10026,6 +10026,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
+      propertyPath: cantBeBroken
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -10072,7 +10076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425828, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_Name
-      value: Rock (61)
+      value: BREAK ME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
@@ -12408,10 +12412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
-      propertyPath: cantBeBroken
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -15922,6 +15922,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3881973243424425825, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
+      propertyPath: cantBeBroken
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425826, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -15968,7 +15972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881973243424425828, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
       propertyPath: m_Name
-      value: Rock (3)
+      value: BREAK ME
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f37c8631542dd04aa468f806f0390b2, type: 3}
