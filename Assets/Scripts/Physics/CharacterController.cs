@@ -243,8 +243,6 @@ public class CharacterController : MonoBehaviour
         {
             playerAngle = 360 - playerAngle;
         }
-        Debug.Log("ref: " + referenceAngle);
-        Debug.Log("angle: " + playerAngle);
         float angle = vertAngle;
         while (playerAngle > angle)
         {
@@ -347,6 +345,8 @@ public class CharacterController : MonoBehaviour
 
     private void CheckForRock()
     {
+        if (rock != null)
+            rock.GetComponent<RockController>().playerNearby = false;
         rock = null;
         Vector3 check = transform.localScale;
         if (transform.parent != null)
@@ -368,15 +368,8 @@ public class CharacterController : MonoBehaviour
 
         if (hit)
         {
-            if (rock != null)
-                rock.GetComponent<RockController>().playerNearby = false;
-
             rock = rockCollider.gameObject;
             rock.GetComponent<RockController>().playerNearby = true;
-        }
-        else if (rock != null)
-        {
-            rock.GetComponent<RockController>().playerNearby = false;
         }
     }
 }
