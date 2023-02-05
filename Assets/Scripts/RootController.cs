@@ -49,19 +49,12 @@ public class RootController : MonoBehaviour
             swinging = false;
             timer = 0;
         }
-        if (point1Locked && point2Locked)
-        {
-            return;
-        }
 
         if (swinging)
         {
             timer += Time.deltaTime;
             Vector2 rotationPoint = transform.position;
-            if (point1Locked)
-                rotationPoint -= (Vector2)(transform.rotation * points[points.Count - 1]);
-            if (point2Locked)
-                rotationPoint -= (Vector2)(transform.rotation * points[0]);
+            rotationPoint -= (Vector2)(transform.rotation * points[points.Count - 1]);
             transform.RotateAround(rotationPoint, Vector3.forward, swingDirection * angle * Mathf.PI / 360 * Mathf.Cos(timer));
         }
     }
@@ -103,12 +96,13 @@ public class RootController : MonoBehaviour
         initialPosition = newPosition;
         initialRotation = Quaternion.identity;
         transform.rotation = initialRotation;
+
+        MakePoints();
     }
 
     private void MakePoints()
     {
-        if (points.Count != 0)
-            return;
+        points.Clear();
         int numPoints = (int)transform.localScale.y + 1;
         Vector2 firstPoint = transform.localScale.y / 2 * Vector2.up;
 
@@ -138,9 +132,9 @@ public class RootController : MonoBehaviour
             index += 1;
         }
         pointIndex = index - 2;
-        if (pointIndex == points.Count - 1 && point2Locked)
+        if (pointIndex == points.Count - 1 && (point2Locked || point1Locked))
             pointIndex -= 1;
-        if (pointIndex == 0 && point1Locked)
+        if (pointIndex == 0 && point1Locked && point1Locked)
             pointIndex += 1;
         return GetPoint(pointIndex);
     }
@@ -185,20 +179,23 @@ public class RootController : MonoBehaviour
             dir = -1;
         if (direction.y < 0)
             dir = 1;
+        /*
         if (point2Locked && !point1Locked)
         {
-            dir *= -1;
             endPoint = 0;
         }
+        //*/
         pointIndex += dir;
         if (pointIndex == points.Count)
             pointIndex -= 1;
-        if (pointIndex == -1)
+        if (pointIndex <= 0)
             pointIndex += 1;
+        /*
         if (pointIndex == points.Count - 1 && point2Locked)
             pointIndex -= 1;
-        if (pointIndex == 0 && point1Locked)
+        if (pointIndex == 0 && point2Locked)
             pointIndex += 1;
+        //*/
         player.transform.localPosition = GetPoint(pointIndex);
 
         if (pointIndex != endPoint)
@@ -215,8 +212,6 @@ public class RootController : MonoBehaviour
         int endPoint = points.Count - 1;
         if (swinging)
             return;
-        if (point2Locked)
-            endPoint = 0;
         if (pointIndex == endPoint)
         {
             swinging = true;
