@@ -35,6 +35,7 @@ public class RockController : MonoBehaviour
 
         if (spike != null)
         {
+            Debug.Log("connecting");
             spike.SetAnchorPoint(gameObject);
             return;
         }
