@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d5555787a34674c8a62e6057301ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSound: {fileID: 8300000, guid: 8b4bb2c59495ecb448e766ad1282ca8c, type: 3}
   anchorPoint: {fileID: 0}
   Fall:
     m_PersistentCalls:
