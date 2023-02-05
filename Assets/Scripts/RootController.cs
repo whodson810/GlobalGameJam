@@ -8,7 +8,7 @@ public class RootController : MonoBehaviour
     public float speed = 5.0f;
     public bool swinging = false;
     public float timer = 0;
-    public float angle = 70;
+    public float swingAngle = 70;
     public int pointIndex = 0;
     public int swingDirection = 0; // -1 = counterclockwise, 1 = clockwise
     public bool point1Locked = false; // points[0]
@@ -18,6 +18,7 @@ public class RootController : MonoBehaviour
 
     private Vector2 initialPosition;
     private Quaternion initialRotation;
+    private Vector2 rotationPoint;
 
     private void Start()
     {
@@ -53,9 +54,13 @@ public class RootController : MonoBehaviour
         if (swinging)
         {
             timer += Time.deltaTime;
-            Vector2 rotationPoint = transform.position;
-            rotationPoint -= (Vector2)(transform.rotation * points[points.Count - 1]);
-            transform.RotateAround(rotationPoint, Vector3.forward, swingDirection * angle * Mathf.PI / 360 * Mathf.Cos(timer));
+            float angle = Mathf.Sin(timer);
+            angle *= swingAngle;
+            Quaternion swingRotation = Quaternion.Euler(0, 0, angle);
+            Vector2 newPos = rotationPoint + (Vector2)(swingRotation * points[points.Count - 1]);
+            transform.position = newPos;
+            transform.rotation = swingRotation;
+            //transform.RotateAround(rotationPoint, Vector3.forward, swingDirection * angle * Mathf.PI / 360 * Mathf.Cos(timer));
         }
     }
 
@@ -103,6 +108,11 @@ public class RootController : MonoBehaviour
         {
             points.Add(firstPoint + i * Vector2.down);
         }
+
+        if (point1Locked)
+            rotationPoint = (Vector2)transform.position + points[0];
+        if (point2Locked)
+            rotationPoint = (Vector2)transform.position + points[points.Count - 1];
     }
 
     // Only use this when getting a point to set the player's position
@@ -247,6 +257,7 @@ public class RootController : MonoBehaviour
             }
         }
 
+        UpdatePoints();
         return false;
     }
 }
