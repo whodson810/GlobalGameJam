@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e1b30c2ee301641aa68260ce4dd702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 8300000, guid: 991574b038d041c4b98cac893a6af75e, type: 3}
+  cutSound: {fileID: 8300000, guid: c55cb99a255de294986b4ee9e2a2974b, type: 3}
+  climbSound: {fileID: 8300000, guid: 991574b038d041c4b98cac893a6af75e, type: 3}
   jumping: 0
   falling: 0
   onRope: 0
@@ -229,21 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb51b21e677e4f947b77762e7ade7190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cc: {fileID: 0}
-  sprites:
-  - {fileID: 21300000, guid: 08772bef6f3256f42acda98a6175df94, type: 3}
-  - {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
-  - {fileID: 21300000, guid: 0c2fdeab726847c428cca72bedc82b5e, type: 3}
-  - {fileID: 21300000, guid: 1e9fbb53de312a4468deac432a86e9aa, type: 3}
-  jumpTime: 0.4
-  jumpRopeTime: 0.2
-  landTime: 0.2
-  frameTimer: 0
-  maxTime: 0
-  currentState: 0
-  lastState: 0
-  flowerTime: 0.25
-  sr: {fileID: 0}
 --- !u!95 &2600602789450057675
 Animator:
   serializedVersion: 5

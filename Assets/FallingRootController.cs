@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class FallingRootController : MonoBehaviour
 {
+    public AudioClip fallSound;
     public GameObject anchorPoint;
     public UnityEvent Fall;
 
@@ -21,6 +22,7 @@ public class FallingRootController : MonoBehaviour
             {
                 child.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
             }
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(fallSound);
             GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePositionY;
             Fall?.Invoke();
         }

@@ -231,6 +231,7 @@ public class RootController : MonoBehaviour
 
     private void SwingOnRope(GameObject player, Vector2 direction)
     {
+        return;
         int endPoint = points.Count - 1;
         if (swinging)
             return;
