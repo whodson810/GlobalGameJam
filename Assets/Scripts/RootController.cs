@@ -73,13 +73,6 @@ public class RootController : MonoBehaviour
             RotateToRootPosition();
             GetComponent<BoxCollider2D>().isTrigger = true;
         }
-        /*
-        else
-        {
-            tag = "Floor";
-            GetComponent<BoxCollider2D>().isTrigger = false;
-        }
-        //*/
     }
 
     private void RotateToRootPosition()
@@ -110,8 +103,6 @@ public class RootController : MonoBehaviour
         {
             points.Add(firstPoint + i * Vector2.down);
         }
-
-        pointIndex = points.Count - 1;
     }
 
     // Only use this when getting a point to set the player's position
@@ -179,23 +170,13 @@ public class RootController : MonoBehaviour
             dir = -1;
         if (direction.y < 0)
             dir = 1;
-        /*
-        if (point2Locked && !point1Locked)
-        {
-            endPoint = 0;
-        }
-        //*/
         pointIndex += dir;
         if (pointIndex == points.Count)
             pointIndex -= 1;
         if (pointIndex <= 0)
             pointIndex += 1;
-        /*
-        if (pointIndex == points.Count - 1 && point2Locked)
+        if (pointIndex == points.Count - 1 && point1Locked && point2Locked)
             pointIndex -= 1;
-        if (pointIndex == 0 && point2Locked)
-            pointIndex += 1;
-        //*/
         player.transform.localPosition = GetPoint(pointIndex);
 
         if (pointIndex != endPoint)

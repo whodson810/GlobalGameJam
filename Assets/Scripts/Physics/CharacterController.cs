@@ -73,15 +73,14 @@ public class CharacterController : MonoBehaviour
     // this function is called by the input component on the player object
     private void OnMove(InputValue v)
     {
+        direction = v.Get<Vector2>();
+        direction.y = 0;
         if (onRope)
         {
             RopeMove(v.Get<Vector2>());
-            direction = Vector2.zero;
             return;
         }
         float x = v.Get<Vector2>().x;
-        direction = v.Get<Vector2>();
-        direction.y = 0;
 
         if (animator)
         {
